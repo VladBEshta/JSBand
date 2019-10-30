@@ -1,0 +1,220 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: 55px;
+    padding-left: 25px;
+}
+
+main {
+    flex: auto;
+    border-top: 1px solid green;
+    border-bottom: 1px solid green;
+}
+
+footer {
+    height: 50px;
+    padding-left: 25px;
+}
+
+::placeholder {
+    color: #000;
+    font-size: 16px;
+}
+
+input,
+select,
+label {
+    font-size: 16px;
+}
+
+.input_row input,
+select {
+    width: 230px;
+    height: 36px;
+    margin: 25px !important;
+    padding: 0px;
+    font-size: 18px;
+    border: 1px solid #000000;
+}
+
+.input_row input[type=text] {
+    width: 196px;
+    height: 32px;
+    width: 300px;
+}
+
+.input_row input[type=submit] {
+    border-radius: 20px;
+    background: #ffff;
+    outline: none;
+}
+
+.input_row input[type=submit]:hover {
+    background: #3CB371;
+}
+
+.input_row {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+input.search {
+    background-image: url('https://img.icons8.com/search');
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    padding-left: 50px;
+}
+
+.modal_window {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 125px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.form_wrapper {
+    width: 20%;
+    margin: 0 auto;
+    border: 1px solid #000;
+    background: #fff;
+}
+
+.form_container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 25px;
+}
+
+.form_container label {
+    margin: 10px;
+}
+
+.form_container input,
+select {
+    margin: 10px;
+    border: 1px solid #000;
+    padding: 5px;
+    color: #000;
+}
+
+.form_container select[id=priorityValue] {
+    margin: 10px !important;
+    font-size: 16px;
+    width: auto;
+}
+
+.form_container input[id=descriptionValue] {
+    height: 56px;
+}
+
+h4 {
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.footer_container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 75px;
+    margin-bottom: 20px;
+}
+
+.footer_container input[id="cancel"],
+input[id="save"] {
+    width: 120px;
+    height: 40px;
+    border-radius: 25px;
+    border: 1px solid #000;
+    outline: none;
+    background: #ffff;
+}
+
+.footer_container input[id="cancel"]:hover {
+    background: #FF0000;
+}
+
+.footer_container input[id="save"]:hover {
+    background: #3CB371;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card {
+    width: 65%;
+    height: auto;
+    background: rgb(65, 179, 163);
+    color: white;
+    margin: 40px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 8px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dotButton {
+    float: right;
+    background: inherit;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    outline: none;
+    width: 35px;
+    height: 25px;
+    padding-bottom: 20px;
+}
+
+.bottomWrap {
+    padding-right: 20px;
+    padding-left: 10px;
+}
+
+.priority {
+    border: 1px dashed rgb(0, 0, 0);
+    display: inline;
+}
+
+.dotButton:hover {
+    background: rgb(35, 115, 105);
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
