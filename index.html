@@ -13,23 +13,23 @@
     </header>
     <main>
         <div class="input_row">
-            <input type="text" class="search" placeholder="search by title">
-            <select name="" id="" required>
-                <option value="">all</option>
+            <input type="text" id="titleFilter" class="search" placeholder="search by title">
+            <select name="" id="status">
+                <option value="all">all</option>
                 <option value="open">open</option>
                 <option value="done">done</option>
             </select>
-            <select name="" id="" required>
+            <select name="" id="priority">
                 <option value="">all</option>
-                <option value="open">high</option>
-                <option value="done">normal</option>
-                <option value="done">low</option>
+                <option value="high">high</option>
+                <option value="normal">normal</option>
+                <option value="low">low</option>
             </select>
             <input id="create" type="submit" value="Create">
         </div>
         <div id="modal" class="modal_window">
             <div class="form_wrapper">
-                <form action="">
+                <form action="" >
                     <div class="form_container">
                         <label for="title">Title:</label>
                         <input id="titleValue" type="text" required pattern="[a-zA-Z][a-zA-Z0-9. ,]+$" maxlength="15" placeholder="Title">
@@ -37,9 +37,9 @@
                         <input id="descriptionValue" type="text" name="description" placeholder="Description">
                         <label for="priority">Priority:</label>
                         <select id="priorityValue">
-                            <option value="High">High</option>
-                            <option value="Normal">Normal</option>
-                            <option value="Low">Low</option>
+                            <option value="high">high</option>
+                            <option value="normal">normal</option>
+                            <option value="low">low</option>
                         </select>
                     </div>
                     <div class="footer_container">

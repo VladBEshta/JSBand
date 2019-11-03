@@ -202,19 +202,41 @@ input[id="save"] {
 .dotButton:hover {
     background: rgb(35, 115, 105);
 }
+
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-left: 8%;
+    margin-top: 10px;
 }
 
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.show {
+    display: block;
+}
+
+.done_icon {
+    background-image: url('img/done.png');
+    background-repeat: no-repeat;
+    background-color: rgb(18, 51, 47) !important;
+    background-position: right 25px top 25px;
+}
+
+a {
+    cursor: pointer;
+}
+
+a:hover {
+    background-color: #666;
 }
