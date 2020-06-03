@@ -1,62 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Todo-list</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <h3>TODOList</h3>
+      <h1>TODOList</h1>
     </header>
     <main>
-        <div class="input_row">
-            <input type="text" id="titleFilter" class="search" placeholder="search by title">
-            <select name="" id="status">
-                <option value="all">all</option>
-                <option value="open">open</option>
-                <option value="done">done</option>
-            </select>
-            <select name="" id="priority">
-                <option value="">all</option>
+      <div class="input_row">
+        <input
+          type="text"
+          id="titleFilter"
+          class="search"
+          placeholder="search by title"
+        />
+        <select name="" id="status">
+          <option value="all">all</option>
+          <option value="open">open</option>
+          <option value="done">done</option>
+        </select>
+        <select name="" id="priority">
+          <option value="">all</option>
+          <option value="high">high</option>
+          <option value="normal">normal</option>
+          <option value="low">low</option>
+        </select>
+        <input id="create" type="submit" value="Create" />
+      </div>
+      <div id="modal" class="modal_window">
+        <div class="form_wrapper">
+          <form action="">
+            <div class="form_container">
+              <label for="title">Title:</label>
+              <input
+                id="titleValue"
+                type="text"
+                required
+                pattern="[a-zA-Z][a-zA-Z0-9. ,]+$"
+                maxlength="15"
+                placeholder="Title"
+              />
+              <label for="description">Description:</label>
+              <input
+                id="descriptionValue"
+                type="text"
+                name="description"
+                placeholder="Description"
+              />
+              <label for="priority">Priority:</label>
+              <select id="priorityValue">
                 <option value="high">high</option>
                 <option value="normal">normal</option>
                 <option value="low">low</option>
-            </select>
-            <input id="create" type="submit" value="Create">
-        </div>
-        <div id="modal" class="modal_window">
-            <div class="form_wrapper">
-                <form action="" >
-                    <div class="form_container">
-                        <label for="title">Title:</label>
-                        <input id="titleValue" type="text" required pattern="[a-zA-Z][a-zA-Z0-9. ,]+$" maxlength="15" placeholder="Title">
-                        <label for="description">Description:</label>
-                        <input id="descriptionValue" type="text" name="description" placeholder="Description">
-                        <label for="priority">Priority:</label>
-                        <select id="priorityValue">
-                            <option value="high">high</option>
-                            <option value="normal">normal</option>
-                            <option value="low">low</option>
-                        </select>
-                    </div>
-                    <div class="footer_container">
-                        <input class="cancel-btn" id="cancel" type="submit" value="Cancel">
-                        <input class="save-btn" id="save" type="submit" value="Save">
-                    </div>
-                </form>
+              </select>
             </div>
+            <div class="footer_container">
+              <input
+                class="cancel-btn"
+                id="cancel"
+                type="submit"
+                value="Cancel"
+              />
+              <input class="save-btn" id="save" type="submit" value="Save" />
+            </div>
+          </form>
         </div>
-        <div id="cards">
-            
-        </div>
+      </div>
+      <div id="cards"></div>
     </main>
     <footer>
-        <p>Vladyslav Beshta</p>
+      <p>Vladyslav Beshta</p>
     </footer>
-</body>
-<script type="text/javascript" src="script.js"></script>
-
+  </body>
+  <script type="text/javascript" src="script.js"></script>
 </html>
