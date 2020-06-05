@@ -18,12 +18,12 @@
           class="search"
           placeholder="search by title"
         />
-        <select name="" id="status">
-          <option value="all">all</option>
+        <select name="status" id="status">
+          <option value="">all</option>
           <option value="open">open</option>
           <option value="done">done</option>
         </select>
-        <select name="" id="priority">
+        <select name="priority" id="priority">
           <option value="">all</option>
           <option value="high">high</option>
           <option value="normal">normal</option>
@@ -33,13 +33,12 @@
       </div>
       <div id="modal" class="modal_window">
         <div class="form_wrapper">
-          <form action="">
+          <form action="" name="modal">
             <div class="form_container">
               <label for="title">Title:</label>
               <input
                 id="titleValue"
                 type="text"
-                required
                 pattern="[a-zA-Z][a-zA-Z0-9. ,]+$"
                 maxlength="15"
                 placeholder="Title"
@@ -60,12 +59,19 @@
             </div>
             <div class="footer_container">
               <input
+                name="cancel"
                 class="cancel-btn"
                 id="cancel"
                 type="submit"
                 value="Cancel"
               />
-              <input class="save-btn" id="save" type="submit" value="Save" />
+              <input
+                name="save"
+                class="save-btn"
+                id="save"
+                type="submit"
+                value="Save"
+              />
             </div>
           </form>
         </div>

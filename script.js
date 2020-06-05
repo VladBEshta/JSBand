@@ -199,42 +199,42 @@ function editCard(id) {
   localStorage.setItem("editing", JSON.stringify(id));
 }
 
-let byStatusFilter = function filterByStatus() {
-  let statusValue = status.value;
-  // let todos = document.querySelectorAll(".card");
-  // for (let i = 0; i < todos.length; i++) {
-  //   switch (statusValue) {
-  //     case "all":
-  //       todos[i].style.display = "flex";
-  //       break;
-  //     case "open":
-  //       if (!todos[i].classList.contains("done_icon")) {
-  //         todos[i].style.display = "flex";
-  //       } else if (todos[i].classList.contains("done_icon")) {
-  //         todos[i].style.display = "none";
-  //       }
-  //       break;
-  //     case "done":
-  //       if (todos[i].classList.contains("done_icon")) {
-  //         todos[i].style.display = "flex";
-  //       } else if (!todos[i].classList.contains("done_icon")) {
-  //         todos[i].style.display = "none";
-  //       }
-  //       break;
-  //   }
-  // }
-  let list = getLSItems();
-  for (let i = 0; i < list.length; i++) {
-    if (statusValue == list[i].status) {
-      document.getElementById(list[i].id).style.display = "flex";
-    } else if (statusValue == "all") {
-      document.getElementById(list[i].id).style.display = "flex";
-    } else {
-      document.getElementById(list[i].id).style.display = "none";
-    }
-  }
-};
-status.onchange = byStatusFilter;
+// let byStatusFilter = function filterByStatus() {
+//   let statusValue = status.value;
+//   // let todos = document.querySelectorAll(".card");
+//   // for (let i = 0; i < todos.length; i++) {
+//   //   switch (statusValue) {
+//   //     case "all":
+//   //       todos[i].style.display = "flex";
+//   //       break;
+//   //     case "open":
+//   //       if (!todos[i].classList.contains("done_icon")) {
+//   //         todos[i].style.display = "flex";
+//   //       } else if (todos[i].classList.contains("done_icon")) {
+//   //         todos[i].style.display = "none";
+//   //       }
+//   //       break;
+//   //     case "done":
+//   //       if (todos[i].classList.contains("done_icon")) {
+//   //         todos[i].style.display = "flex";
+//   //       } else if (!todos[i].classList.contains("done_icon")) {
+//   //         todos[i].style.display = "none";
+//   //       }
+//   //       break;
+//   //   }
+//   // }
+//   let list = getLSItems();
+//   for (let i = 0; i < list.length; i++) {
+//     if (statusValue == list[i].status) {
+//       document.getElementById(list[i].id).style.display = "flex";
+//     } else if (statusValue == "all") {
+//       document.getElementById(list[i].id).style.display = "flex";
+//     } else {
+//       document.getElementById(list[i].id).style.display = "none";
+//     }
+//   }
+// };
+// status.onchange = byStatusFilter;
 
 function markAsDoneCard(id) {
   let list = getLSItems();
@@ -251,39 +251,105 @@ function markAsDoneCard(id) {
     return item;
   });
   localStorage.setItem("TODOList", JSON.stringify(list));
-  byStatusFilter();
 }
 
-priority.onchange = function filterByPriotity() {
-  let priorityValue = priority.value;
-  let list = getLSItems();
+// priority.onchange = function filterByPriotity() {
+//   let priorityValue = priority.value;
+//   let list = getLSItems();
 
-  for (let i = 0; i < list.length; i++) {
-    if (priorityValue == list[i].priority) {
-      document.getElementById(list[i].id).style.display = "";
-    } else if (priorityValue == "") {
-      document.getElementById(list[i].id).style.display = "";
-    } else {
-      document.getElementById(list[i].id).style.display = "none";
-    }
-  }
-};
+//   for (let i = 0; i < list.length; i++) {
+//     if (priorityValue == list[i].priority) {
+//       document.getElementById(list[i].id).style.display = "";
+//     } else if (priorityValue == "") {
+//       document.getElementById(list[i].id).style.display = "";
+//     } else {
+//       document.getElementById(list[i].id).style.display = "none";
+//     }
+//   }
+// };
 
-titleFilter.onkeyup = function myFunction() {
-  let list = getLSItems();
-  cards = document.getElementById("cards");
-  for (i = 0; i < list.length; i++) {
-    let check = document.getElementById(list[i].id).firstChild;
-    let txtValue = check.textContent || check.innerText;
-    if (txtValue.indexOf(titleFilter.value) > -1) {
-      document.getElementById(list[i].id).style.display = "";
-    } else {
-      document.getElementById(list[i].id).style.display = "none";
-    }
-  }
-};
+// titleFilter.onkeyup = function myFunction() {
+//   let list = getLSItems();
+//   cards = document.getElementById("cards");
+//   for (i = 0; i < list.length; i++) {
+//     let check = document.getElementById(list[i].id).firstChild;
+//     let txtValue = check.textContent || check.innerText;
+//     if (txtValue.indexOf(titleFilter.value) > -1) {
+//       document.getElementById(list[i].id).style.display = "";
+//     } else {
+//       document.getElementById(list[i].id).style.display = "none";
+//     }
+//   }
+// };
 
 function filterAll() {
-  console.log(priority.onchange);
+  document.querySelectorAll(".card").forEach((e) => e.remove());
+  let list = getLSItems();
+  let filteredList = list.filter(
+    (item) =>
+      item.title.includes(titleFilter.value) &&
+      item.priority.includes(priority.value) &&
+      item.status.includes(status.value)
+  );
+  for (let i = 0; i < filteredList.length; i++) {
+    const newDiv = document.createElement("div");
+    const newTitle = document.createElement("h4");
+    const newDescription = document.createElement("h4");
+    const newPriority = document.createElement("h4");
+    const bottomWrapDiv = document.createElement("div");
+    const dotButton = document.createElement("button");
+    const dropdown = document.createElement("div");
+    const doneCard = document.createElement("a");
+    const editCard = document.createElement("a");
+    const deleteCard = document.createElement("a");
+
+    newTitle.innerHTML = filteredList[i].title;
+    newDescription.innerHTML = filteredList[i].description || "";
+    newPriority.innerHTML = filteredList[i].priority;
+
+    newDiv.appendChild(newTitle);
+    newDiv.appendChild(newDescription);
+    newDiv.appendChild(bottomWrapDiv);
+    bottomWrapDiv.appendChild(newPriority);
+    bottomWrapDiv.appendChild(dotButton);
+    bottomWrapDiv.appendChild(dropdown);
+    dropdown.appendChild(doneCard);
+    dropdown.appendChild(editCard);
+    dropdown.appendChild(deleteCard);
+    doneCard.innerHTML = "done";
+    doneCard.setAttribute("id", "done" + list[i].id);
+    editCard.innerHTML = "edit";
+    editCard.setAttribute("id", "edit" + list[i].id);
+    deleteCard.innerHTML = "delete";
+    deleteCard.setAttribute("id", "delete" + list[i].id);
+
+    newDiv.setAttribute("class", "card");
+    newDiv.setAttribute("id", filteredList[i].id);
+    dropdown.setAttribute("id", "dropdown" + filteredList[i].id);
+    dropdown.setAttribute("class", "dropdown-content");
+
+    cardsDiv = document.getElementById("cards");
+    cardsDiv.appendChild(newDiv);
+    dotButton.setAttribute("class", "dotButton");
+    dotButton.setAttribute("id", "button" + filteredList[i].id);
+
+    newPriority.setAttribute("class", "priority");
+
+    cardsDiv.setAttribute("class", "cards");
+
+    bottomWrapDiv.setAttribute("class", "bottomWrap");
+
+    dotButton.innerHTML = "...";
+    if (filteredList[i].status == "done") {
+      document.getElementById(filteredList[i].id).classList.add("done_icon");
+      document.getElementById(filteredList[i].id).style["order"] =
+        filteredList.length;
+      document.getElementById("done" + list[i].id).innerHTML = "open";
+    }
+  }
+
+  console.log(filteredList);
 }
-filterAll();
+status.onchange = filterAll;
+priority.onchange = filterAll;
+titleFilter.onkeyup = filterAll;
